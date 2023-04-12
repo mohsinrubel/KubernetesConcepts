@@ -1,0 +1,31 @@
+
+✅ What is Kubernetes? 🚀
+In simple words, Kubernetes makes it easier to automate the deployment, scaling, and management of containerized applications. It was designed to solve several challenges that come with deploying and managing large-scale, complex applications in production environments.
+
+✅ Why do we need Kubernetes?
+While we can deploy applications on containers, why do we need Kubernetes?
+
+▶ To deploy containerized applications on multiple servers without an orchestration system, you would need to manually manage the deployment of containers across each server, install container runtime on each server, and manage networking between containers on each server. This process is time-consuming, error-prone, and doesn't provide automation and scalability features.
+
+◽ Set up multiple servers: You would need to set up multiple servers, either on-premise or in the cloud, to host your containers.
+◽ Install a container runtime: You would need to install a container runtime, such as Docker, on each of the servers.
+◽ Deploy containers: Next, you would need to manually deploy the containers on each server. This could involve pulling container images and starting the containers on each server.
+◽ Manage networking: You would need to manage the networking between the containers on each server, ensuring they can communicate as needed. This could involve setting up network bridges, creating network segments, or using other configurations.
+◽ Manage to scale: To scale your application, you would need to manually add or remove containers from each server as needed.
+◽ Manage Load Balancing: You need customized applications to enable load balancing. This process can be time-consuming and error-prone and does not provide automation and scalability features.
+
+✅ Here is where container orchestration tool like Kubernetes comes into the picture.
+
+Using Kubernetes, you just have to worry about your application development and deployments. All heavy lifting like networking, service-to-service communication across nodes, load balancing, resource scheduling, scalability, and high availability is taken care of by Kubernetes.
+
+▶ Overall Kubernetes helps you achieve the following.
+
+◽ Container orchestration: Automates the deployment, scaling, and management of containers
+◽ Automatic scaling: Horizontal and Vertical scaling
+Self-healing: Detects and replaces failed containers.
+◽ Load balancing: Distributes incoming requests across multiple containers
+◽ Service discovery and networking: Manage communication between containers.
+◽ Rolling updates and rollbacks: Deploy applications with zero downtime.
+◽ Resource management: Manage CPU, memory, and storage of containers
+◽ Volume management: Manage persistent storage for your containers.
+◽ Config and Secret management: Provides ways to externalize application configs and secrets and makes them accessible to applications running inside containers.
