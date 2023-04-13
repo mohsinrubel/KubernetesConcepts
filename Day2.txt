@@ -1,0 +1,52 @@
+Kubernetes Learning [Day 02]
+
+Let's learn about Kubernetes Cluster Components-Architecture🚀
+
+It is essential to understand that Kubernetes is a distributed system.
+
+Meaning, it has multiple components spread across different servers over a network. These servers could be Virtual machines or bare metal servers.
+
+As a whole, we call it a Kubernetes cluster.
+
+A Kubernetes cluster consists of a control plane and a data plane means Master node and worker nodes.
+
+✅ The control plane (Master node) is responsible for maintaining the desired state of the cluster. It is also responsible for node/pod lifecycle management and exposing cluster API. It has the following components.
+
+1. kube-apiserver
+2. etcd
+3. kube-scheduler
+4. kube-controller-manager
+5. cloud-controller-manager
+
+✅ The Data plane (Worker node) is responsible for running containerized applications. The worker Node has the following components.
+
+1. kubelet
+2. kube-proxy
+3. Container runtime (CRI-O, Dockershim, Containerd, etc)
+
+✅ Additionally there are add-on components that you can add to the cluster to extend its functionality and make the cluster fully functional for application deployments.
+
+Following are some of the common Kubernetes add-ons
+
+1. Web UI
+2. Core DNS
+3. Metrics Server
+4. CNI Plugins (Container Network Interface)
+
+In this Kubernetes distributed scenario, the connection happening through the network to connect with different Kubernetes components should be secure and all the components should be able to authenticate each other.
+
+Kubernetes uses PKI certificates for authentication over TLS.
+
+In the upcoming posts, I will cover each component and its significance in detail.
+
+Links to my Kubernetes learning resources: https://lnkd.in/dpu3E8tM
+
+https://lnkd.in/gVKzyuud
+
+https://lnkd.in/g7CJtHds
+
+
+My previous Kubernetes post: https://lnkd.in/gC_hXrpA
+
+
+Note: I've written based on my current level of learning so I welcome any feedback or corrections from those who may have more expertise in the subject matter.
