@@ -1,0 +1,38 @@
+Accessing Kubernetes from the Dashboard
+
+Couple of weeks back, I spoke about the different ways to access your cluster but with emphasis on the CLI tool - Kubectl. Today I'll spotlight another method of accessing your cluster - UI.
+
+Kubernetes dashboard is a web-based UI that allows you to visualize and manage your Kubernetes clusters. It's a great tool for beginners who are not familiar with the command-line interface (CLI) or those who prefer a graphical user interface (GUI).
+
+To access the K8s dashboard, you first need to ensure that it's installed and running on your cluster. Depending on how you installed K8s, the dashboard may already be installed, or you may need to install it separately. You can check if the dashboard is installed by running the following command:
+
+$ kubectl get pods -n kube-system | grep dashboard
+
+If the dashboard is installed, you should see one or more pods listed, such as kubernetes-dashboard-xxxxx. If the dashboard is not installed, you can install it by running the following command:
+
+$ kubectl apply -f https://lnkd.in/dJJvTzvK
+
+
+Once the dashboard is installed, you can access it by running the following command:
+
+$ kubectl proxy
+
+This command starts a local web server and creates a secure tunnel between your local machine and the Kubernetes API server. Once the proxy is running, you can access the dashboard by opening your web browser and navigating to "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/".
+
+If you're using Minikube, you can access the dashboard by running the following command:
+
+$ minikube dashboard
+
+This command opens the dashboard in your default web browser.
+
+When you access the dashboard, you'll be prompted to enter a token or a kubeconfig file. If you're using a kubeconfig file, click on "Kubeconfig" & browse to the location of your kubeconfig file. If you don't have a kubeconfig file or don't know how to create one, you can use a token instead.
+
+To create a token, run the following command:
+
+$ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default-token | awk '{print $1}')
+
+This command retrieves the token for the default service account in the kube-system namespace. Copy the token and paste it into the token field on the dashboard login page.
+
+Once you've logged in, you'll be able to view information about your cluster, such as the number of nodes, pods, and services. You can also create and manage resources, such as deployments, services, and pods, directly from the dashboard.
+
+In summary, the Kubernetes dashboard is a useful tool for managing your Kubernetes clusters, especially if you're not familiar with the command-line interface. You can access the dashboard by installing it, starting a local proxy, and logging in with a token or kubeconfig file.

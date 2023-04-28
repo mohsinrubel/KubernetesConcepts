@@ -1,0 +1,23 @@
+Worker/Slave Node
+
+The worker nodes in a Kubernetes cluster are responsible for actually running the microservices and handling the workload. These nodes require more resources than the master node.
+Processes that run on the Worker node:
+Container runtime
+Kubelet
+Kube-proxy
+
+Container Runtime
+
+Since every microservice runs on a container, the container runtime technology, such as Docker, must be installed on the worker node. The runtime technology also assists the Kubelet in running different containers, by providing the necessary space and resources for the containers to operate.
+
+Kubelet
+
+Kubelet acts as the communication channel between the worker node and the master node, allowing the worker node to send messages to the master node. Kubelet provides the necessary information about the containers on the worker node to the master node, and in turn, the master node tells Kubelet what to do with the containers.
+
+Kube-Proxy
+
+Kube-proxy ensures internal communication between the computers in the worker node. It passes information from one computer to another, even between different worker nodes, ensuring that all communication follows a code of conduct. Kube-proxy also ensures that requests are routed to the appropriate channels and sends messages according to the instructions given by the master node.
+
+Conclusion
+
+In summary, the worker nodes in a Kubernetes cluster have a more substantial workload than the master node, and therefore, require more resources to operate effectively. The worker nodes run microservices on containers, and the processes running on them, such as the container runtime, Kubelet, and Kube-proxy, are responsible for communicating with the master node, routing messages to appropriate channels, and ensuring internal communication between computers in the worker node.

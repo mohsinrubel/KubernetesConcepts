@@ -1,0 +1,9 @@
+In this post, we will discuss components of Kubernetes that we didn't cover yesterday.
+
+DaemonSet in Kubernetes is like a rule that tells all the nodes in the cluster to build a specific model (pod) necessary for the application to work. For example, if you need to collect logs from every node, you can use a daemonSet to ensure that a log collection Pod is running on every node. The daemonSet ensures that the pod is running on every computer in the class, just like a teacher makes sure that every student is doing the task.
+
+Replicas in Kubernetes are like duplicate models (pods) that you can build to ensure that your application is always available. If one replica fails, another replica can take over and ensure that your application remains available.
+
+Volumes are used to store data in Kubernetes that needs to be shared between different Pods or to store data that needs to be preserved even if the pod is deleted or recreated. It is like using a special Lego block with a compartment inside it to store a toy driver in a toy car model.
+
+In summary, Kubernetes is like playing with Lego blocks, where each node is a Lego block that can be used to build small models (pods). Instructions (services) are used to build the models and add a door or entrance (ingress) so people can play with them. A recipe book (ConfigMap) and secret ingredients (Secrets) can be used to make the models even better. A boss or manager (Deployment) tells you how to build your models, and sometimes you need to build models that need to be kept in a certain order (StatefulSet). Special pieces (DaemonSet) can ensure that a specific model is always available on every Lego block, and multiple replicas can be created to ensure that your application is always available. Finally, volumes can be used to store data inside your models that can be shared.

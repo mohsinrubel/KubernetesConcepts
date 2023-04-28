@@ -1,0 +1,16 @@
+Day 7 of Kubernetes Writing Challenge ✍️
+
+In this post, I'll will be discussing the main components of Kubernetes, including Nodes, Pods, Services, Ingress, ConfigMap, Secrets, Deployment, Replica, Statefulset, Volumes, and Daemonset. Let's get into each of them in that order.
+
+Nodes are the foundation of a Kubernetes cluster. They are physical or virtual machines that run your applications, also known as servers or computers. Nodes are responsible for running pods and providing the resources, such as CPU, memory, and storage, for them to run.
+
+Pods are the smallest and simplest units in Kubernetes. A pod is an abstraction of a container that represents a single instance of an application, i.e., your microservice, and can contain one or more containers. Pods run on nodes, and many pods can run on a single node.
+
+To explain further, a pod is like a mini playground with a few toys inside. It's made up of one or more containers that work together to do something more complex, like a few toys that work together to build a tower or play a game. A pod is a way to group containers that need to work together and share resources, like memory or storage, on it. Each pod gets to own its IP address, but pods are ephemeral, meaning they die too easily, and this IP address gets changed each time a new pod is replaced. This is not a good option if you are using the IP address to communicate with the DB, for instance, and you have to seek the new IP address and change it because a pod died. Therefore, the need for the next component, SERVICE.
+
+Services are used to group related pods and provide a stable network endpoint for accessing them. A service is a persistent or permanent IP address attached to a pod. In this case, the lifecycle of the pod and the service are not connected, so if a pod dies, it dies alone and is replaced, and the same service will be available to the new pod, maintaining its IP. Services abstract the details of the underlying pods and provide load balancing across them. That means the service is the one that routes traffic to the pods within, based on usage. They can be accessed within the cluster or from outside the cluster using an external IP address or hostname. Services are like the instructions you use to build Lego models. They tell you how to connect the blocks together and which ones to use.
+
+The ingress is like the door or entrance to your Lego model. It allows people to come in and play with your Lego creation. Ingress routes traffic into your cluster and forwards incoming requests to the service. Ingress is what I'll call a more presentable DNS not 162.0.0.1:3000
+. Plus, ingress can also perform SSL termination, path-based routing, and other advanced routing features.
+
+We will continue with the other components in the next post. Please feel free to ask questions or provide feedback on how I can simplify the write-up further.

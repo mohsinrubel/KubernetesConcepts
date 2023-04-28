@@ -1,0 +1,12 @@
+Today, we will explore one of the many important and powerful tool when it comes to Kubernetes - Minikube
+
+Minikube is a tool that enables you to create a single-node Kubernetes cluster on your local computer. It allows you to run both master and worker processes on a single node. This provides a simple way to try out Kubernetes without having to set up a full-scale production environment. You can use it to experiment with different settings and test out your Kubernetes configurations on your local setup.
+
+To install and run Minikube, you need the following:
+
+1. A hypervisor - Minikube runs a virtual machine on your local computer, so you will need to install a hypervisor such as VirtualBox or Hyper-V.
+2. A compatible operating system - Minikube works on Linux, macOS, and Windows operating systems.
+3. A supported container runtime - Minikube supports Docker and CRI-O container runtimes. It is recommended to use Docker, which is the most commonly used container runtime, with Minikube.
+4. Minikube installation files - You can download the installation files, including the minikube binary and other necessary files, from the Minikube website.
+
+Once you have installed Minikube, you can start up your local Kubernetes cluster by running the "minikube start" command. This will launch a local Kubernetes cluster on your computer. You can then use Kubectl to interact with the cluster and deploy applications.

@@ -1,0 +1,11 @@
+In this post, we will discuss some essential components of Kubernetes that we didn't cover yesterday.
+
+ConfigMap is like a recipe book that provides instructions on how to build your Lego model. It holds configurations in plain text format that change frequently. For example, your database URL could easily be changed, and you don't want to go about changing that everywhere it was used. It is important to note that the information stored in a ConfigMap is not encrypted.
+
+Secrets are like the secret ingredients that you need to add to your recipe book to make your Lego model even better. They contain encrypted configurations such as credentials (e.g., DB password and username), certificates, etc. They are hidden to ensure that they are not exposed to unauthorized parties. Secrets are typically encrypted in base64. You can connect secrets to your pod without the risk of exposure, and it also helps you easily reuse and change the variables.
+
+Deployment is an abstraction of your pods. It acts as a boss or manager who directs you on how many Lego models you need to build and how to build them. It replicates, scales, and updates your pods, meaning you can specify how many instances of your pod you require, rolling updates and rollbacks. However, Deployment does not replicate your DB pod because databases are stateful, and deployments are commonly used to manage stateless applications.
+
+StatefulSet is similar to Deployment, but it is used for stateful applications that require stable network identities and persistent storage. It ensures that each pod is deployed and scaled in a specific order, and that reads and writes are synchronized. Each pod has a unique hostname and network identity. Using a StatefulSet is like building a Lego model that needs to be kept in a certain order, like a tower of blocks. The blocks need to be put in the right order, or the tower might fall apart.
+
+I will continue with the other components in the next post. Please feel free to ask questions or provide feedback on how I can simplify the write-up further.

@@ -1,0 +1,58 @@
+If you're working with Kubernetes, understanding Kubectl commands is crucial. In this post, I'll cover some basic Kubectl commands that you should be familiar with.
+
+Creating Objects:
+
+kubectl apply -f ./<file_name>.yaml: Create a resource
+kubectl apply -f ./<file_name_1>.yaml -f ./<file_name_2>.yaml: Create from multiple files
+kubectl apply -f https://<url>: Create from URL
+kubectl run <pod_name> --image <image_name>: Create a pod
+kubectl create deployment <deployment_name> --image <image_name>: Create a deployment
+kubectl create service <service-type> <service_name> --tcp=<port:target_port>: Create a service
+kubectl create configmap <configmap_name> --fromfile=<file_name>: Create a config map from a file
+kubectl create secret generic <secret_name> --fromfile=<file_name>: Create a secret from a file
+Node Commands:
+
+kubectl describe node <node_name>: Describe a node
+kubectl get node <node_name> -o yaml: Get a node in YAML format
+kubectl get node <node_name>: Get a node
+Pod Commands:
+
+kubectl get pod <pod_name>: Get a pod
+kubectl get pod <pod_name> -o yaml: Get a pod in YAML format
+kubectl edit pod <pod_name>: Edit a pod
+kubectl describe pod <pod_name>: Describe a pod
+kubectl delete pod <pod_name>: Delete a pod
+kubectl logs pod <pod_name>: Get logs for a pod
+kubectl logs pod -f <pod_name>: Tail -f a pod's logs
+kubectl exec -it pod <pod_name> /bin/bash: Execute into a pod
+Deployment Commands:
+
+kubectl get deployment <deployment_name>: Get a deployment
+kubectl get deployment <deployment_name> -o yaml: Get a deployment in YAML format
+kubectl edit deployment <deployment_name>: Edit a deployment
+kubectl describe deployment <deployment_name>: Describe a deployment
+kubectl delete deployment <deployment_name>: Delete a deployment
+kubectl logs deployment/deployment_name -f: Log a deployment
+kubectl set image deployment <deployment_name> <container_name>=<new_image_name>: Update an image
+Service Commands:
+
+kubectl get service <service>: Get a service
+kubectl get service <service> -o yaml: Get a service in YAML format
+kubectl edit service <service>: Edit a service
+kubectl describe service <service>: Describe a service
+kubectl delete service <service>: Delete a service
+Endpoints Commands:
+
+kubectl get endpoints <endpoints_name>: Get endpoints
+Ingress Commands:
+
+kubectl get ingress: Get an ingress
+kubectl get ingress -o yaml: Get an ingress in YAML format
+kubectl edit ingress <ingress_name>: Edit an ingress
+kubectl describe ingress <ingress_name>: Describe an ingress
+kubectl delete ingress <ingress_name>: Delete an ingress
+Monitoring Usage Commands:
+
+kubectl top node <node_name>: Get a node's CPU & memory utilization
+kubectl top pods <pod_name>: Get a pod's CPU & memory utilization
+These are just a few Kubectl commands that can help you create, display, update, & troubleshoot objects within your cluster. If you're interested, I could share a cheat sheet with you via email. Just drop a comment below.

@@ -1,0 +1,16 @@
+In the upcoming post, I will be demonstrating a project that utilizes Kubernetes Ingress. Therefore, it is necessary to first talk about what Kubernetes Ingress/ Ingress Controller is and why it is important in the context of Kubernetes.
+
+Kubernetes Ingress is a component that manages incoming traffic to services running in a Kubernetes cluster by acting as a reverse proxy and routing traffic to different services based on URL path or host name. On the other hand, Kubernetes Ingress Controller is a software component that manages the actual implementation of the Ingress rules defined in Kubernetes.
+In other words, while Kubernetes Ingress defines the rules for how incoming traffic should be routed, Kubernetes Ingress Controller is responsible for implementing those rules by configuring the reverse proxy.
+
+There are several Ingress Controllers available for Kubernetes, including NGINX, Traefik, and Istio (I might talk about this in another post). Each Ingress Controller has its own set of features and configuration options, but they all follow the Kubernetes Ingress specification.
+
+To use an Ingress Controller with Kubernetes, you must first deploy it in your cluster. Once the Ingress Controller is running, it will watch for changes to the Ingress objects in your cluster and configure the reverse proxy accordingly.
+I've attached an example to illustrate the difference between Kubernetes Ingress and Ingress Controller.
+
+Let's say you have a Kubernetes cluster that runs a web application with multiple microservices. You create an Ingress object with rules that map different URL paths to each microservice's service.
+In the example below, the Ingress object defines rules that route traffic to the api-service and orders-service based on URL paths.
+
+Next, you deploy an Ingress Controller such as NGINX in your cluster. Once the Ingress Controller is running, it will read the rules defined in the example-ingress object and configure the reverse proxy accordingly.
+
+In summary, Kubernetes Ingress defines the rules for how incoming traffic should be routed, while Kubernetes Ingress Controller implements those rules by configuring the reverse proxy. Together, they provide a powerful and flexible way to manage incoming traffic to your Kubernetes cluster.

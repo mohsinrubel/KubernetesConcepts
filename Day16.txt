@@ -1,0 +1,24 @@
+I am excited to share that I have successfully completed the two-week Kubernetes challenge I started on Twitter. However, I am extending it a bit because what's a learning process without a hands-on project?
+
+Today, let's talk about the Secret YAML file in Kubernetes. Secrets are used to store and manage sensitive information, such as passwords, API keys, or SSL certificates. In the Secret YAML file, we have:
+-apiVersion
+-kind: In this case, it's a Secret.
+-metadata: Contains metadata about the Secret, E.g name.
+-name: Name of the Secret.
+-type: In the file attached, we're using the "Opaque" type, which means that the Secret is a collection of arbitrary byte data.
+-data: Contains the actual secret data. Each key-value pair represents a single piece of sensitive information. In this case, we have two pieces of information: "username" and "password". Note that the values for these keys are base64-encoded strings.
+
+When you create a Secret in Kubernetes, it creates a separate object that stores this sensitive information. By separating your sensitive information from your app code, you can make it easier to manage your app's security and reduce the risk of exposing sensitive information in your code or configuration files.
+
+To encode the secret data in a Secret YAML file, you can use a base64 encoding tool like your Linux terminal or Windows shell. For example, to encode a string using the base64 command in Linux, you can run the command:
+$ echo -n "my-secret-password" | base64
+The output of the command is the base64-encoded string:
+bXktc2VjcmV0LXBhc3N3b3Jk.
+
+Before using the value in your app, you will need to decode the base64-encoded string back into its original form. You can do this using a base64 decoding tool, or most programming languages have built-in functions to handle base64 decoding.
+
+To use a Secret in your Deployment YAML file, you can reference the Secret in the "spec.template.spec.containers" section of the Deployment. For instance, you can include a reference to the "my-secret" secret in your Deployment YAML file by referencing the secret in two environment variables that you're setting for the "my-container" container. The "valueFrom.secretKeyRef" field specifies the name of the secret (my-secret) and the key within the secret that we want to use ("username" and "password", respectively).
+
+N/B: You can also reference a Secret in other parts of your YAML file, such as a ConfigMap or another Secret. The syntax for referencing a secret is always the same. "valueFrom .secretKeyRef. name" specifies the name of the Secret, and "valueFrom.secretKeyRef.key" specifies the key within the Secret that you want to use. This also applies to the ConfigMap variables.
+
+With this, we are 70% ready to start deploying scalable projects with Kubernetes. Tomorrow, we'll use Kubectl to string all these moving parts together.

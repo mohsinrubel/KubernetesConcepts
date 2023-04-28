@@ -1,0 +1,12 @@
+Today I'll give a brief summary of all I've been on the last 4 days;
+Let's say you're running a web application that consists of multiple microservices, each running in its own container. With Kubernetes, you can manage these containers and ensure they're running smoothly and efficiently. This way, containers can be easily moved and copied to different computers. Kubernetes makes sure the containers keep running and can be scaled up or down as needed.
+
+Kubernetes is made up of a boss (master node) and workers (worker nodes) that carry the containers. The boss makes sure the workers are working and manages the containers.
+In a Kubernetes cluster, there are two types of nodes: the Master node (the boss) and the Worker node (the sufferhead).
+
+The Master node manages the cluster and has agents that help it do so, such as the API server (the doorway to the cluster), the Controller Manager (the babysitter), the Scheduler (the game chooser), and the Etcd (the cluster brain).
+
+The Worker node is where the actual work happens. It has three processes: Container runtime (helps run containers), Kubelet (talks to the boss), and Kube-proxy (passes info between computers). The Worker node has more work to do and requires more resources than the Master node.
+
+Think of it like an arena where the boss oversees everything and has helpers to manage the gamers. The gamers are the Worker nodes that do the actual work, while the boss is the Master node that manages everything.
+Okay that's it for today, tomorrow we handle a few research gaps.

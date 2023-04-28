@@ -1,0 +1,25 @@
+Manually managing containerized applications can be a hassle, but Kubernetes takes care of the heavy lifting. In this guide, I'll explore how to accomplish this with simple YAML files. YAML files might seem intimidating at first, but they are the key to managing your containerized applications with ease.
+
+A Deployment object is a YAML file that defines how to create and manage a set of identical pods. It contains two important sections: metadata and spec:
+
+The metadata section contains information about the object, such as its name and labels. It's like giving the object a name tag so that you can find it later.
+
+The spec section specifies the desired state of the pods. It contains several properties that are important to understand, such as:
+
+-Selector: This is a way of selecting which pods the object should manage. It's like telling Kubernetes which containers to group together under this object.
+-MatchLabels: This is another way of selecting which pods the object should manage by matching specific labels. It's like telling Kubernetes to group together containers with specific tags.
+-Replicas: This specifies how many identical copies of the container should be running. It's like telling Kubernetes how many containers you want to have running at the same time.
+-Template: This describes the template for creating the pods. It includes information about the container image to use and specifies how the container should be configured. It's like giving Kubernetes a recipe for creating new containers.
+-Labels: This is a way of labeling the pods created by the template. It's like giving your containers a name tag so you can identify them later.
+-Containers: This section lists the containers that should be run inside the pod. It's like telling Kubernetes what you want to run inside the container.
+The container section contains the following important properties:
+
+-Image: This specifies the Docker image that the container should be based on. It's like telling Kubernetes what code to use for the container.
+-Ports: This specifies the port mapping between the container and the pod or service. It's like telling Kubernetes how to connect to the container's application inside the container.
+-Name: This is the name of the object you're creating. It's like giving the thing you're creating a name so you can refer to it later.
+
+In addition to these properties, there are two more important properties that must come first in the YAML file:
+-apiVersion: This specifies the version of the Kubernetes API that the YAML file is using. It's like telling Kubernetes which language you're speaking to it in.
+-Kind: This specifies what kind of Kubernetes object the YAML file is defining, such as a Deployment or a Service. It's like telling Kubernetes what kind of thing you're trying to create.
+
+Tomorrow, we'll look at another type of YAML file used in Kubernetes: the Service object. Stay tuned!

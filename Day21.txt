@@ -1,0 +1,22 @@
+Kubernetes Deployment Strategies
+
+Kubernetes is a powerful container orchestration system that allows you to deploy and manage containerized applications at scale. One of the key features of Kubernetes is its deployment strategies, which provide you with different ways to roll out new versions of your application, and manage updates and rollbacks.
+
+There are three main deployment strategies in Kubernetes:
+
+1.) Rolling update
+2.) Blue-green deployment
+3.) Canary deployment
+
+Let's take a look at each of these in more detail.
+
+Rolling update:
+A rolling update is the default deployment strategy in Kubernetes. It updates the application instances in a rolling manner, one at a time, with zero downtime. This means that while the new version of the application is being rolled out, the old version is still running, ensuring that there is no interruption to the service. Rolling updates are ideal for applications that need to be highly available and require continuous delivery.
+
+Blue-green deployment:
+A blue-green deployment is a deployment strategy that involves running two identical environments - a blue environment and a green environment - and switching traffic from one environment to the other. The blue environment is the current production environment, while the green environment is the new environment where you deploy the new version of your application. Once the new version is fully deployed in the green environment, traffic is switched from the blue environment to the green environment. This allows you to test the new version of your application in a real-world environment before it goes live, and also enables you to roll back to the previous version if there are any issues.
+
+Canary deployment:
+A canary deployment is a deployment strategy that involves gradually rolling out the new version of your application to a small percentage of users, and then gradually increasing the percentage of users until the new version is fully deployed. This allows you to test the new version of your application in a real-world environment before it goes live, and also enables you to roll back to the previous version if there are any issues. Canary deployments are ideal for applications that need to be highly available and require continuous delivery, but also require more rigorous testing before going live.
+
+In summary, Kubernetes deployment strategies provide you with different ways to roll out new versions of your application, and manage updates and rollbacks. Rolling updates, blue-green deployment, and canary deployment are the three main strategies you can use, depending on your application's requirements. By understanding these strategies, you can ensure that your application is deployed and updated in a way that is reliable, scalable, and resilient.

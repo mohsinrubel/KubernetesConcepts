@@ -1,0 +1,1 @@
+We'll start with an easy project first: Deploying a simple React-Django application to AWS EKS using Eksctl and Kubectl.

@@ -1,0 +1,28 @@
+In this post, I'll be discussing the second part of the file, which is a Service object that provides network access to a set of Pods.
+
+The Service object specifies the following:
+
+-apiVersion: This is the version of the Kubernetes API that this Service YAML file is using.
+-kind: This specifies that we're creating a Kubernetes Service object.
+-metadata: This is where we specify metadata for the Service object, such as its name.
+-name: This is the name of the Service object we're creating.
+-spec: This is where we specify the Service's settings and configurations.
+-selector: This tells the Service which Pods to target. In this case, it's looking for Pods with the label app: my-app.
+-ports: This section specifies the ports that the Service will be using to connect to the targeted Pods.
+-name: This is an optional name for the port, which can be useful if there are multiple ports.
+-protocol: This specifies the protocol used for the port, which is usually TCP or UDP.
+-port: This is the port that the Service will use to listen for traffic.
+targetPort: This is the port that the Service will forward the traffic to on the targeted Pods.
+-type: This specifies the type of Service we're creating. In this case, it's a ClusterIP (I'll explain more about types of service in a bit).
+
+In simple terms, a Kubernetes Service is a way to make a group of Pods accessible as a single entity. A Service has a stable IP address and DNS name that other parts of your application can use to connect to it (Day 5). There are four types of Services in Kubernetes: ClusterIP, NodePort, LoadBalancer, and ExternalName.
+
+-ClusterIP is the default type of Service, and it allows other parts of your application to connect to the Service from within the same Kubernetes cluster.
+-NodePort allows you to access the Service from outside the cluster as well as inside it.
+-LoadBalancer automatically sets up a load balancer to distribute traffic to your Service across multiple Nodes and Pods, which is useful when you need to make sure your application can handle a lot of traffic and stay available even if some parts of it fail.
+-ExternalName maps the Service to an external DNS name, which is useful when you need to use an external service in your application.
+
+By understanding the different Service types and their capabilities, you can choose the best one for your use case. By using Kubernetes Services, you can make it easier to connect different parts of your application and ensure that it stays available even as different parts of it change over time.
+Together with the Deployment object, which ensures that a specified number of identical Pods are running, the Service object provides network access to those Pods, allowing the application to be scaled up or down as needed and made available to users on the internet.
+
+Thanks for reading! 🤗

@@ -1,0 +1,19 @@
+In the last two days, I've explained the basic content of a deployment YAML file and a service YAML file.
+N/B: These two kinds can actually be put in the same YAML file as two blocks separated by a line and "---".
+Today, we'll look at a concept I spoke about in days 8 or 9 called "ConfigMap".
+To refresh our memory, a ConfigMap in Kubernetes is a way to store configuration data separately from your application code, making it easier to change configuration settings without having to change the code itself. Here's a breakdown of the different parts of a ConfigMap YAML file:
+
+-apiVersion: This is the version of the Kubernetes API that the ConfigMap is using.
+-kind: This specifies the type of Kubernetes resource that this YAML file represents. In this case, it's a ConfigMap.
+-metadata: This section contains metadata about the ConfigMap, such as its name.
+-name: This is the name of the ConfigMap.
+-data: This section contains the actual configuration data. Each key-value pair represents a single configuration setting. In this example, we have two configuration settings: 'DB_NAME' & 'DB_HOST'.
+
+Once you have a ConfigMap defined, you can use it in your deployment file to provide configuration settings to your application. I'll attach an example of how you might use a ConfigMap in a deployment file.
+In the file attached below, we're defining a deployment that runs a container using the 'my-image' image. The container needs to know the values of two configuration settings: 'DB_NAME' & 'DB_HOST'. Instead of hard-coding these values into the deployment file, we're using a ConfigMap to provide them.
+
+The 'env' section of the container definition lists the environment variables that should be set inside the container. For each environment variable, we're using the 'valueFrom' field to specify that the value should come from a ConfigMap. The 'configMapKeyRef' field specifies which ConfigMap to use (my-config in this case) and which key in the ConfigMap corresponds to the environment variable.
+
+By using a ConfigMap in this way, you can make it easier to manage your application's configuration settings and avoid hard-coding values into your deployment file, which can be especially useful in a large or complex deployment.
+
+Tomorrow, we'll look at the secret YAML file. Then we'll be 70% ready to conquer Kubernetes.
