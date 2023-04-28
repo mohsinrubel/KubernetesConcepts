@@ -1,0 +1,27 @@
+Kubernetes Namespaces
+
+When working with Kubernetes, you will often hear the term "namespace." So, what exactly is a namespace?
+
+Imagine you have a large garden with many different types of plants and flowers. To keep everything organized and easy to manage, you might divide your garden into sections, such as a vegetable patch, a rose garden, and a herb bed. Each section is a different namespace, and each plant or flower is a resource within that namespace.
+
+Similarly, a Kubernetes namespace is a way to organize resources within a cluster. A namespace provides a scope for Kubernetes objects like pods, services, and deployments. It allows you to group related resources together and avoid naming collisions between resources in different namespaces.
+
+By default, Kubernetes creates a namespace called "default," which is where all resources are created if no namespace is specified. However, it's a best practice to create your own namespaces to organize your resources based on their purpose or environment. For example, you might have one namespace for production resources and another for development resources.
+
+To create a new namespace, you can use the kubectl create namespace command. For example, the following command will create a new namespace called "my-namespace":
+
+kubectl create namespace my-namespace
+
+You can also specify a namespace for a specific resource when creating it with kubectl apply or kubectl create. For example, the following command will create a pod in the "my-namespace" namespace:
+
+kubectl apply -f my-pod.yaml --namespace=my-namespace
+
+Once you have created a namespace, you can view all the resources within it by running kubectl get with the -n or --namespace flag:
+
+kubectl get pods -n my-namespace
+
+You can also set a default namespace for a specific context in your kubeconfig file. This can be useful if you frequently work with resources in a particular namespace. To set a default namespace for a context, use the following command:
+
+kubectl config set-context <context-name> --namespace=<namespace-name>
+
+In summary, namespaces are an important concept in Kubernetes that allow you to organize and manage resources within a cluster. By creating separate namespaces for different resources, you can avoid naming conflicts and make it easier to manage your applications.

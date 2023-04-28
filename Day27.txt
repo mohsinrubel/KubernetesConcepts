@@ -1,0 +1,18 @@
+Helm!
+
+Have you ever deployed an application in Kubernetes and found it to be a daunting task? There are many different components to manage, including pods, services, and configuration files. Keeping track of everything can be overwhelming, especially when you're deploying multiple applications. That's where Helm comes in!
+
+Helm is a package manager for Kubernetes, which means it helps you to manage, package, and deploy applications in your Kubernetes cluster. It does this by providing a templating engine that enables you to create reusable, versioned packages of Kubernetes manifests, called charts. Helm charts can include one or more Kubernetes resources such as deployments, services, and config maps.
+
+When you use Helm to install a chart, it will create all the necessary Kubernetes objects for your application to run in your cluster. It also allows you to configure the resources through a set of configurable variables, called values.
+
+One of the key benefits of Helm is that it simplifies the installation and management of complex applications. Instead of manually creating and managing each Kubernetes object required for the application, you can use Helm charts to package and deploy the application with just a few commands. This makes it easier to deploy and manage complex applications in Kubernetes, especially in large-scale production environments.
+
+Another benefit of Helm is that it provides a mechanism for versioning and rolling back application releases. When you install a chart, Helm creates a release that includes a specific version of the chart and its configuration values. This allows you to easily roll back to a previous version if there are issues with the new release.
+Helm is not the only package manager for Kubernetes, but it is the most widely used and supported by the Kubernetes community.
+
+Other popular package managers include Kustomize and Jsonnet. However, Helm is preferred by many because it is easy to learn and provides a higher level of abstraction over Kubernetes manifests.
+To start using Helm, you first need to install the Helm client on your local machine. You can then use the Helm CLI to create and manage charts, as well as install and manage releases in your Kubernetes cluster.
+
+Overall, Helm is an important concept in Kubernetes because it simplifies the process of deploying complex applications and provides a mechanism for versioning and rolling back releases. It is widely used and supported by the Kubernetes community, making it a popular choice for managing applications in Kubernetes clusters.
+Tomorrow we delve further into helm & its use cases.

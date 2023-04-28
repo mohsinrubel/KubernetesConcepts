@@ -1,0 +1,75 @@
+Implementing Role-Based Access Control (RBAC) in Kubernetes (Part 2)
+
+Yesterday, we talked about the concept of RBAC and its importance in securing your Kubernetes cluster. Today, we'll be taking a closer look at how RBAC can be implemented using YAML files.
+
+Let's say you have a Kubernetes cluster runs a web app, & you want to create two different roles of users: developers & testers. You want the developers to be able to create & edit deployments while the testers can only view them.
+
+To do this, we can create two different Roles in Kubernetes. The first - for developers, & it will grant them permissions to access Kubernetes Deployment resources in the default namespace. The second - for testers, & it will only allow them to view Deployments.
+
+Here's what the YAML file for the 'developer' role could look like:
+
+kind: Role
+apiVersion: https://lnkd.in/dgTjQ7XX
+
+metadata:
+namespace: default
+name: developer
+rules:
+- apiGroups: ["apps"]
+resources: ["deployments"]
+verbs: ["create", "update", "delete", "get", "list", "watch"]
+
+As you can see, this Role grants permissions to access Kubernetes Deployment resources in the default namespace. The verbs in the rules field define the actions that are permitted on those resources.
+
+Now, let's grant this role to a specific user. We can do this by creating a RoleBinding:
+
+kind: RoleBinding
+apiVersion: https://lnkd.in/dgTjQ7XX
+
+metadata:
+name: developer-rolebinding
+namespace: default
+subjects:
+- kind: User
+name: developer
+roleRef:
+kind: Role
+name: developer
+apiGroup: rbac.authorization.k8s.io
+
+
+This RoleBinding maps the "developer" user to the "developer" Role that we created earlier. With this in place, the developer user can now create, edit, & delete Deployments within the default namespace.
+
+For the 'tester' role, the YAML file for the Role would look like this:
+
+kind: Role
+apiVersion: https://lnkd.in/dgTjQ7XX
+
+metadata:
+namespace: default
+name: tester
+rules:
+- apiGroups: ["apps"]
+resources: ["deployments"]
+verbs: ["get", "list", "watch"]
+
+The RoleBinding for the 'tester' user being very similar to the one for the 'developer' user, except the Role referenced would be 'tester' rather than 'developer'.
+
+kind: RoleBinding
+apiVersion: https://lnkd.in/dgTjQ7XX
+
+metadata:
+name: tester-rolebinding
+namespace: default
+subjects:
+- kind: User
+name: tester
+roleRef:
+kind: Role
+name: tester
+apiGroup: rbac.authorization.k8s.io
+
+
+This RoleBinding maps the "tester" user to the "tester" Role, which only allows read access to Deployments.
+
+In conclusion, RBAC is a powerful security tool in K8s & by creating Roles & RoleBindings using YAML files, you can easily manage permissions for different users and ensure that your cluster is secure.

@@ -1,0 +1,13 @@
+RBAC in Kubernetes!
+
+You might be wondering, what in the world is RBAC? Well, RBAC stands for Role-Based Access Control. Simply put, RBAC is a way for admins to control who has access to what resources in a Kubernetes cluster. This is a fancy way of saying that the people in charge of a Kubernetes system can control who gets to do what.
+
+In Kubernetes, there are many different resources that make up a cluster, such as pods, services, and nodes, most of which we have already discussed. With RBAC, admins can create roles that define what actions a user, or a group of users, can perform on these resources. For example, you might create a role that allows a user to create pods, but not delete them.
+In a Kubernetes system, there are a lot of things that people can do - example creating or deleting pods or applications as earler stated. But, not everyone should be able to do all those things! That's where RBAC comes in. The people in charge can create "roles" that say what types of actions different groups of people can perform.
+
+RBAC is important because it helps keep your Kubernetes cluster secure. You don't want just anyone messing around with your resources! With RBAC, you can control who has access to what, making sure that only authorized users can make changes.
+
+Now, you might be thinking, "This all sounds very complicated!" But don't worry, RBAC doesn't have to be hard to understand. Think of RBAC like a game of "Simon Says". Each player has to listen to the instructions from "Simon" and only do what he says. In Kubernetes, the "admin" is like "Simon" and the users are like the players. The admin sets the rules and the users have to follow them, making sure only the right people can do the right things.
+
+So, that's RBAC in a nutshell! It might seem complicated, but it's a very important concept in Kubernetes. If you're working with Kubernetes, it's important to understand RBAC so you can keep your cluster secure and running smoothly. Tomorrow, I'll show you how to do this with your YAML script. I'll also recommend to check out Pavan's video on RBAC https://lnkd.in/gGc2wi9B
+, really helpful resource 👏
